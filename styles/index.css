@@ -204,3 +204,33 @@ svg * {
 		scroll-behavior: auto !important;
 	}
 }
+
+:root {
+	--base-font: "Open Sans";
+	--base-font-color: #ffffff;
+	--red-color: #CB453C;
+	--blue-color: #2D81B5;
+	--brown-color: #CF7C00;
+	--gray-color: #474747;
+	--lightblue-color: #75BBC8;
+	--storm-blue: #1E2569;
+	--doc-color: #353E69;
+	--king-blue-color: #27B2F1;
+}
+
+body {
+	font-family: var(--base-font);
+	color: var(--base-font-color);
+}
+
+a,
+a:visited,
+a:active {
+	text-decoration: none;
+	color: var(--base-font-color);
+}
+
+.container {
+	max-width: 1232px;
+	margin: 0 auto;
+}
