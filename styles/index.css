@@ -231,6 +231,303 @@ a:active {
 }
 
 .container {
-	max-width: 1232px;
+	max-width: 1360px;
 	margin: 0 auto;
+	padding-inline: 50px;
+}
+
+/*Стилизация Header*/
+.header {
+	background-color: var(--red-color);
+}
+
+.header-container {
+	padding-block: 3.704vh;
+}
+
+
+.header-nav-bar {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header-logo-link {
+	display: block;
+}
+
+.header-logo {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	column-gap: 17px;
+	font-weight: 700;
+	font-size: 1.5rem;
+}
+
+.header-nav-list {
+	font-size: 1.188rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	column-gap: 100px;
+}
+
+.nav-list-item {
+	position: relative;
+}
+
+.nav-list-item:before {
+	content: "";
+	width: 0px;
+	height: 2px;
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	background-color: #ffffff;
+	transition: all 0.2s;
+}
+
+.nav-list-item:hover:before {
+	width: 100%;
+}
+
+.nav-list-link {}
+
+.header-market-group {
+	display: flex;
+	column-gap: 22px;
+}
+
+.header-market-link {
+	border-radius: 13px;
+	border: 2px solid transparent;
+	padding: 4px;
+	transition: border 0.2s;
+}
+
+.header-market-link:hover {
+	border: 2px solid #ffffff;
+}
+
+/*Адаптация Header*/
+@media(max-width:900px) {
+	.header-nav-bar {
+		flex-wrap: wrap;
+		row-gap: 30px;
+	}
+
+	.header-nav-list {
+		order: 1;
+		width: 100%;
+	}
+}
+
+@media(max-width:570px) {
+	.header-nav-list {
+		column-gap: 15px;
+	}
+
+	.header-container {
+		padding-inline: 20px;
+	}
+}
+
+/*Стилизация Macqueen*/
+.main {}
+
+.macqueen-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	column-gap: 40px;
+	padding-top: 13%;
+	position: relative;
+}
+
+
+
+.macqueen {
+	background: url(/icons/Transparent-Lightning.svg) no-repeat bottom -20px right -100px / 584px 216px,
+		url(/icons/Rusteze.svg) no-repeat bottom -20px left -100px / 677px 568px,
+		var(--red-color) url(/icons/95.svg) no-repeat top right / 624px 369px;
+	height: 88vh;
+
+}
+
+.macqueen-info {
+	font-size: 1.125rem;
+	margin-bottom: 40px;
+}
+
+
+
+.macqueen-heading {
+	font-weight: 700;
+	font-size: 2rem;
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.macqueen-heading::after {
+	content: "";
+	position: absolute;
+	top: -35px;
+	right: -100px;
+	width: 168px;
+	height: 67px;
+	background-image: url(/icons/Yellow-Lightning.svg);
+	background-repeat: no-repeat;
+}
+
+.macqueen-buy-group {
+	display: flex;
+	flex-direction: row;
+	column-gap: 20px;
+}
+
+.macqueen-buy-button {
+	border: 2px solid #ffffff;
+	font-size: 1.5rem;
+	background-color: transparent;
+	padding: 10px 10px 10px 20px;
+	font-weight: 700;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	column-gap: 10px;
+	border-radius: 50px;
+}
+
+.buy-button-circle {
+	background-color: #ffffff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 42px;
+	aspect-ratio: 1;
+	border-radius: 50%;
+}
+
+.buy-button-circle svg path {
+	fill: var(--red-color);
+}
+
+.macqueen-buy-button.alternate {
+	color: var(--red-color);
+	background-color: #ffffff;
+}
+
+.macqueen-buy-button.alternate .buy-button-circle svg path {
+	fill: #ffffff;
+}
+
+.macqueen-buy-button.alternate .buy-button-circle {
+	background-color: var(--red-color);
+}
+
+.macqueen-image {
+	max-width: 50%;
+	scale: -1 1;
+	filter: drop-shadow(10px 20px 15px rgba(0, 0, 0, 0.663));
+	position: relative;
+	z-index: 2;
+}
+
+/*Адаптация Macqueen*/
+@media(max-width:1410px) {
+
+	.macqueen {
+		background: url(/icons/Transparent-Lightning.svg) no-repeat bottom -20px right -100px / 417px 154px,
+			url(/icons/Rusteze.svg) no-repeat bottom 100px left 0px / 513px 430px,
+			var(--red-color) url(/icons/95.svg) no-repeat top right / 453px 268px;
+		height: 88vh;
+
+	}
+
+	.macqueen-image {
+		flex-grow: 0;
+		flex-shrink: 1;
+	}
+
+	.macqueen-heading::after {
+		content: "";
+		position: absolute;
+		top: -35px;
+		right: -50px;
+		width: 106px;
+		height: 42px;
+		background-size: cover;
+		background-image: url(/icons/Yellow-Lightning.svg);
+		background-repeat: no-repeat;
+	}
+
+}
+
+@media(max-width:1165px) {
+	.macqueen-buy-group {
+		display: flex;
+		flex-direction: column;
+		row-gap: 20px;
+
+	}
+
+	.macqueen-buy-button {
+		justify-content: space-between;
+	}
+}
+
+@media(max-width:920px) {
+	.macqueen-image {
+		display: none;
+	}
+
+	.macqueen-info {
+		justify-content: center;
+		display: flex;
+		flex-direction: column;
+		padding-block: 4vw;
+	}
+
+	.macqueen {
+		background: var(--red-color) url(/icons/Rusteze.svg) no-repeat center;
+		height: 88vh;
+
+	}
+
+}
+
+@media(max-width:550px) {
+	.macqueen {
+		background: var(--red-color) url(/icons/Rusteze.svg) no-repeat center / 551px 475px;
+		height: 88vh;
+
+	}
+
+	.macqueen-container {
+		padding-inline: 20px;
+		flex-direction: column;
+		padding-top: 20px;
+		row-gap: 30px;
+	}
+
+	.macqueen-heading::after {
+		display: none;
+	}
+
+	.macqueen-heading {
+		font-size: 1.5rem;
+	}
+
+	.macqueen-info {
+		font-size: 1rem;
+	}
+
+	.macqueen-image {
+		display: block;
+		max-width: 100%;
+	}
+
 }
