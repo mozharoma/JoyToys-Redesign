@@ -218,6 +218,11 @@ svg * {
 	--king-blue-color: #27B2F1;
 }
 
+img,
+svg {
+	pointer-events: none;
+}
+
 body {
 	font-family: var(--base-font);
 	color: var(--base-font-color);
@@ -399,6 +404,33 @@ a:active {
 	align-items: center;
 	column-gap: 10px;
 	border-radius: 50px;
+	transition: all 0.2s;
+}
+
+.macqueen-buy-button:hover {
+	background-color: #ffffff;
+	color: var(--red-color);
+}
+
+.macqueen-buy-button:hover .buy-button-circle {
+	background-color: var(--red-color);
+}
+
+.macqueen-buy-button:hover .buy-button-circle svg path {
+	fill: #ffffff;
+}
+
+.macqueen-buy-button.alternate:hover {
+	background-color: transparent;
+	color: #ffffff;
+}
+
+.macqueen-buy-button.alternate:hover .buy-button-circle {
+	background-color: #ffffff;
+}
+
+.macqueen-buy-button.alternate:hover .buy-button-circle svg path {
+	fill: var(--red-color)
 }
 
 .buy-button-circle {
@@ -443,13 +475,12 @@ a:active {
 		background: url(/icons/Transparent-Lightning.svg) no-repeat bottom -20px right -100px / 417px 154px,
 			url(/icons/Rusteze.svg) no-repeat bottom 100px left 0px / 513px 430px,
 			var(--red-color) url(/icons/95.svg) no-repeat top right / 453px 268px;
-		height: 88vh;
+		height: auto;
 
 	}
 
-	.macqueen-image {
-		flex-grow: 0;
-		flex-shrink: 1;
+	.macqueen-container {
+		padding-block: 10%;
 	}
 
 	.macqueen-heading::after {
@@ -480,8 +511,9 @@ a:active {
 }
 
 @media(max-width:920px) {
+
 	.macqueen-image {
-		display: none;
+		max-width: 80%;
 	}
 
 	.macqueen-info {
@@ -493,8 +525,11 @@ a:active {
 
 	.macqueen {
 		background: var(--red-color) url(/icons/Rusteze.svg) no-repeat center;
-		height: 88vh;
+	}
 
+	.macqueen-container {
+		flex-direction: column-reverse;
+		padding-block: 5%;
 	}
 
 }
@@ -502,14 +537,14 @@ a:active {
 @media(max-width:550px) {
 	.macqueen {
 		background: var(--red-color) url(/icons/Rusteze.svg) no-repeat center / 551px 475px;
-		height: 88vh;
 
 	}
 
 	.macqueen-container {
 		padding-inline: 20px;
 		flex-direction: column;
-		padding-top: 20px;
+		padding-top: 0;
+		padding-bottom: 10%;
 		row-gap: 30px;
 	}
 
@@ -530,4 +565,154 @@ a:active {
 		max-width: 100%;
 	}
 
+}
+
+/*Стилизация Thomas*/
+.thomas {
+	background: url('/icons/Thomas-and-Friends.svg') no-repeat bottom right -200px / 815px 417px,
+		var(--blue-color) url('/icons/1-bg.svg') no-repeat center left / 440px 890px;
+}
+
+.thomas-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	column-gap: 40px;
+	padding-block: 5%;
+}
+
+.container {}
+
+.thomas-image {
+	max-width: 50%;
+}
+
+.thomas-info {}
+
+.thomas-info-heading {
+	font-size: 2rem;
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.thomas-info-heading:after {
+	content: "";
+	width: 50px;
+	height: 132px;
+	position: absolute;
+	top: -80px;
+	left: -50px;
+	background-image: url('/icons/1.svg');
+	background-size: cover;
+	rotate: 35deg;
+}
+
+.thomas-info-text {
+	font-size: 1.125rem;
+	margin-bottom: 35px;
+}
+
+.thomas-buy-group {
+	display: flex;
+	flex-direction: row;
+	column-gap: 20px;
+}
+
+.thomas-buy-button {
+	border: 2px solid #ffffff;
+	font-size: 1.5rem;
+	background-color: transparent;
+	padding: 10px 10px 10px 20px;
+	font-weight: 700;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	column-gap: 10px;
+	border-radius: 50px;
+	transition: all 0.2s;
+}
+
+.thomas-buy-button.alternate {
+	background-color: #ffffff;
+	color: var(--blue-color);
+}
+
+.thomas-buy-button .buy-button-circle svg path {
+	fill: var(--blue-color);
+}
+
+.thomas-buy-button.alternate .buy-button-circle {
+	background-color: var(--blue-color);
+}
+
+.thomas-buy-button.alternate .buy-button-circle svg path {
+	fill: #ffffff;
+}
+
+/*Адаптация Thomas*/
+@media(max-width:1410px) {
+	.thomas {
+		background: url('/icons/Thomas-and-Friends.svg') no-repeat bottom 100px right -200px / 575px 294px,
+			var(--blue-color) url('/icons/1-bg.svg') no-repeat center left -100px / 440px 890px;
+	}
+
+	.thomas-container {
+		padding-block: 15%;
+	}
+
+	.thomas-info-heading:after {
+		width: 40px;
+		height: 120px;
+	}
+}
+
+@media(max-width:1165px) {
+	.thomas-buy-group {
+		flex-direction: column;
+		row-gap: 20px;
+	}
+
+	.thomas-buy-button {
+		justify-content: space-between;
+	}
+
+	.thomas-info-heading {
+		font-size: 1.7rem;
+	}
+}
+
+@media(max-width:730px) {
+	.thomas {
+		background: var(--blue-color) url('/icons/Thomas-and-Friends.svg') no-repeat center;
+	}
+
+	.thomas-container {
+		flex-direction: column;
+		padding-block: 5%;
+	}
+
+	.thomas-image {
+		max-width: 80%;
+	}
+	.thomas-info-heading:after{
+		display: none;
+	}
+
+}
+
+@media(max-width:550px) {
+	.thomas-container {
+		flex-direction: column-reverse;
+		padding-top: 15%;
+		padding-inline: 20px;
+	}
+
+	.thomas-info-heading {
+		font-size: 1.5rem;
+	}
+
+	.thomas-info-text {
+		font-size: 1rem;
+	}
 }
