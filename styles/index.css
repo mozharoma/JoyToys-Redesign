@@ -742,7 +742,8 @@ a:active {
 	display: flex;
 	flex-direction: column;
 	row-gap: 42px;
-	background-color: #ffffff;
+	background: url("/icons/Gray-Thomas-And-Friends.svg") no-repeat top right -100px / 370px 311px,
+		#ffffff url("/icons/Gray Rusteze.svg") no-repeat bottom -20px left -100px / 370px 311px;
 	flex-basis: 630px;
 	flex-grow: 0;
 	flex-shrink: 1;
@@ -864,4 +865,107 @@ a:active {
 		text-align: center;
 	}
 
+	.advantages-info {
+		background: url("/icons/Gray-Thomas-And-Friends.svg") no-repeat top center / 370px 311px,
+			#ffffff url("/icons/Gray Rusteze.svg") no-repeat bottom 100px left -65px / 370px 311px;
+	}
+}
+
+/*Стилизация Footer*/
+.footer {
+	background-color: var(--gray-color);
+
+}
+
+.footer-container {
+	padding-block: 3.704vh;
+}
+
+
+.footer-nav-bar {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.footer-logo-link {
+	display: block;
+}
+
+.footer-logo {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	column-gap: 17px;
+	font-weight: 700;
+	font-size: 1.5rem;
+}
+
+.footer-nav-list {
+	font-size: 1.188rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	column-gap: 100px;
+}
+
+.footer-nav-list .nav-list-item {
+	position: relative;
+}
+
+.footer-nav-list .nav-list-item:before {
+	content: "";
+	width: 0px;
+	height: 2px;
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	background-color: #ffffff;
+	transition: all 0.2s;
+}
+
+.footer-nav-list .nav-list-item:hover:before {
+	width: 100%;
+}
+
+
+.footer-market-group {
+	display: flex;
+	column-gap: 22px;
+}
+
+.footer-market-link {
+	border-radius: 13px;
+	border: 2px solid transparent;
+	padding: 4px;
+	transition: border 0.2s;
+}
+
+.footer-market-link:hover {
+	border: 2px solid #ffffff;
+}
+
+/*Адаптация Footer*/
+@media(max-width:900px) {
+	.footer-nav-bar {
+		flex-wrap: wrap;
+		row-gap: 30px;
+	}
+
+	.footer-nav-list {
+		order: 1;
+		width: 100%;
+		display: none;
+	}
+}
+
+@media(max-width:570px) {
+	.footer-container {
+		padding-inline: 20px;
+	}
+
+	.footer-market-group {
+		column-gap: 0px;
+	}
 }
