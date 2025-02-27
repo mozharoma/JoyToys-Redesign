@@ -1,0 +1,973 @@
+@font-face {
+	font-family: 'Open Sans';
+	src: url('../fonts/OpenSans-SemiBold.woff2') format('woff2');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('../fonts/OpenSans-Bold.woff2') format('woff2');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('../fonts/OpenSans-Medium.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+	box-sizing: border-box;
+}
+
+/**
+	 Убираем внутренние отступы слева тегам списков,
+	 у которых есть атрибут class
+	*/
+:where(ul, ol):where([class]) {
+	padding-left: 0;
+}
+
+/**
+	 Убираем внешние отступы body и двум другим тегам,
+	 у которых есть атрибут class
+	*/
+body,
+:where(blockquote, figure):where([class]) {
+	margin: 0;
+}
+
+/**
+	 Убираем внешние отступы вертикали нужным тегам,
+	 у которых есть атрибут class
+	*/
+:where(h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	ul,
+	ol,
+	dl):where([class]) {
+	margin-block: 0;
+}
+
+:where(dd[class]) {
+	margin-left: 0;
+}
+
+:where(fieldset[class]) {
+	margin-left: 0;
+	padding: 0;
+	border: none;
+}
+
+/**
+	 Убираем стандартный маркер маркированному списку,
+	 у которого есть атрибут class
+	*/
+:where(ul[class]) {
+	list-style: none;
+}
+
+:where(address[class]) {
+	font-style: normal;
+}
+
+/**
+	 Обнуляем вертикальные внешние отступы параграфа,
+	 объявляем локальную переменную для внешнего отступа вниз,
+	 чтобы избежать взаимодействие с более сложным селектором
+	*/
+p {
+	--paragraphMarginBottom: 24px;
+
+	margin-block: 0;
+}
+
+/**
+	 Внешний отступ вниз для параграфа без атрибута class,
+	 который расположен не последним среди своих соседних элементов
+	*/
+p:where(:not([class]):not(:last-child)) {
+	margin-bottom: var(--paragraphMarginBottom);
+}
+
+
+/**
+	 Упрощаем работу с изображениями и видео
+	*/
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+/**
+	 Наследуем свойства шрифт для полей ввода
+	*/
+input,
+textarea,
+select,
+button {
+	font: inherit;
+}
+
+html {
+	/**
+	   Пригодится в большинстве ситуаций
+	   (когда, например, нужно будет "прижать" футер к низу сайта)
+	  */
+	height: 100%;
+	/**
+	   Убираем скачок интерфейса по горизонтали
+	   при появлении / исчезновении скроллбара
+	  */
+	scrollbar-gutter: stable;
+}
+
+/**
+	 Плавный скролл
+	*/
+html,
+:has(:target) {
+	scroll-behavior: smooth;
+}
+
+body {
+	/**
+	   Пригодится в большинстве ситуаций
+	   (когда, например, нужно будет "прижать" футер к низу сайта)
+	  */
+	min-height: 100%;
+	/**
+	   Унифицированный интерлиньяж
+	  */
+	line-height: 1.5;
+}
+
+/**
+	 Нормализация высоты элемента ссылки при его инспектировании в DevTools
+	*/
+a:where([class]) {
+	display: inline-flex;
+}
+
+/**
+	 Курсор-рука при наведении на элемент
+	*/
+button,
+label {
+	cursor: pointer;
+}
+
+/**
+	 Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+	*/
+svg * {
+	transition-property: fill, stroke;
+}
+
+/**
+	 Приведение рамок таблиц в классический 'collapse' вид
+	*/
+:where(table) {
+	border-collapse: collapse;
+	border-color: currentColor;
+}
+
+/**
+	 Удаляем все анимации и переходы для людей,
+	 которые предпочитают их не использовать
+	*/
+@media (prefers-reduced-motion: reduce) {
+
+	*,
+	::before,
+	::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+:root {
+	--base-font: "Open Sans";
+	--base-font-color: #ffffff;
+	--red-color: #CB453C;
+	--blue-color: #2D81B5;
+	--brown-color: #CF7C00;
+	--gray-color: #474747;
+	--lightblue-color: #75BBC8;
+	--storm-blue: #1E2569;
+	--doc-color: #353E69;
+	--king-blue-color: #27B2F1;
+	--luidgi-yellow-color: #FFD078;
+	--luidgi-black-font-color: #404040;
+	--ramon-purple-color: #7A4792;
+	--sally-clue-color: #599EF3;
+}
+
+img,
+svg {
+	pointer-events: none;
+}
+
+body {
+	font-family: var(--base-font);
+	color: var(--base-font-color);
+
+}
+
+body p {
+	line-height: 1.8;
+}
+
+a,
+a:visited,
+a:active {
+	text-decoration: none;
+	color: var(--base-font-color);
+}
+
+.container {
+	max-width: 1360px;
+	margin: 0 auto;
+	padding-inline: 50px;
+}
+
+/*Стилизация Header*/
+.header {
+	background-color: var(--lightblue-color);
+}
+
+.header-container {
+	padding-block: 3.704vh;
+}
+
+
+.header-nav-bar {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header-logo-link {
+	display: block;
+}
+
+.header-logo {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	column-gap: 17px;
+	font-weight: 700;
+	font-size: 1.5rem;
+}
+
+.header-nav-list {
+	font-size: 1.188rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	column-gap: 100px;
+}
+
+.nav-list-item {
+	position: relative;
+}
+
+.nav-list-item:before {
+	content: "";
+	width: 0px;
+	height: 2px;
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	background-color: #ffffff;
+	transition: all 0.2s;
+}
+
+.nav-list-item:hover:before {
+	width: 100%;
+}
+
+.nav-list-link {}
+
+.header-market-group {
+	display: flex;
+	column-gap: 22px;
+}
+
+.header-market-link {
+	border-radius: 13px;
+	border: 2px solid transparent;
+	padding: 4px;
+	transition: border 0.2s;
+}
+
+.header-market-link:hover {
+	border: 2px solid #ffffff;
+}
+
+/*Адаптация Header*/
+@media(max-width:900px) {
+	.header-nav-bar {
+		flex-wrap: wrap;
+		row-gap: 30px;
+	}
+
+	.header-nav-list {
+		order: 1;
+		width: 100%;
+	}
+}
+
+@media(max-width:570px) {
+	.header-nav-list {
+		column-gap: 15px;
+	}
+
+	.header-container {
+		padding-inline: 20px;
+	}
+}
+
+/*Стилизация Present*/
+.main {}
+
+.present {
+	background: url(/icons/Piston-cup-logo.svg) no-repeat bottom right -100px /450px 370px,
+		url("/icons/95.svg") no-repeat left -100px top / 509px 301px,
+		var(--lightblue-color) url(/icons/Rusteze.svg) no-repeat center / 550px 550px;
+	height: 88vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 5%;
+	padding-bottom: 10%;
+}
+
+.present-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.present-header {
+	font-size: 3.5rem;
+	margin-bottom: 24px;
+	text-align: center;
+
+}
+
+.present-subtitle {
+	font-size: 2rem;
+	max-width: 628px;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.present-image {}
+
+/*Адаптация Present*/
+@media(max-width:1150px) {
+	.present {
+		background: var(--lightblue-color) url(/icons/Rusteze.svg) no-repeat center;
+		padding-top: 0%;
+	}
+}
+
+@media(max-width:830px) {
+	.present-header {
+		font-size: 3rem;
+	}
+
+	.present-subtitle {
+		font-size: 1.5rem;
+	}
+
+	.present {
+		background: var(--lightblue-color) url(/icons/Rusteze.svg) no-repeat center /500px 500px;
+		height: auto;
+	}
+}
+
+@media(max-width:570px) {
+	.present-container {
+		padding-inline: 20px;
+	}
+
+	.present-header {
+		font-size: 2rem;
+	}
+
+}
+
+/*Стилизация Storm*/
+
+.storm {
+	background: url(/icons/Storm-logo.svg) no-repeat left -200px bottom 30% / 730px 235px,
+		url(/icons/20.svg) no-repeat bottom -50px right -100px / 400px 329px,
+		var(--storm-blue) url(/icons/IGNTR.svg) no-repeat top 50px right -150px / 600px 150px;
+}
+
+.storm-container {
+	padding-block: 8%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	column-gap: 50px;
+}
+
+.container {}
+
+.storm-image {
+	max-width: 45%;
+	filter: drop-shadow(-30px 20px 20px #0000009d);
+}
+
+.storm-info {}
+
+.storm-heading {
+	font-size: 2.2rem;
+	margin-bottom: 20px;
+}
+
+.storm-subtitle {
+	font-size: 1.125rem;
+	font-weight: 600;
+}
+
+/*Адаптация Storm*/
+@media(max-width:1200px) {
+
+	.storm {
+		background: url(/icons/Storm-logo.svg) no-repeat left -200px top / 680px 150px,
+			var(--storm-blue) url(/icons/IGNTR.svg) no-repeat bottom right -150px / 600px 150px;
+	}
+}
+
+@media(max-width:920px) {
+	.storm-container {
+		flex-direction: column-reverse;
+		row-gap: 30px;
+	}
+
+	.storm-image {
+		max-width: 80%;
+	}
+}
+
+@media(max-width:830px) {
+	.storm-heading {
+		font-size: 1.7rem;
+	}
+
+	.storm-subtitle {
+		font-size: 1rem;
+	}
+}
+
+@media(max-width:640px) {
+	.storm {
+		background: var(--storm-blue) url(/icons/IGNTR.svg) no-repeat center center / 700px 250px;
+	}
+}
+
+@media(max-width:570px) {
+	.storm-container {
+		padding-inline: 20px;
+	}
+
+	.storm-info {
+		text-align: center;
+	}
+}
+
+@media(max-width:430px) {
+	.storm {
+		background: var(--storm-blue) url(/icons/IGNTR.svg) no-repeat center center / 500px 150px;
+	}
+}
+
+/*Стилизация Hudson*/
+.hudson {
+	background: url(/icons/Cars.svg) no-repeat center right / 650px 350px,
+		var(--doc-color) url(/icons/Piston-cup-logo.svg) no-repeat bottom -50px left -100px / 450px 397px;
+}
+
+.hudson-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	column-gap: 50px;
+	padding-block: 8%;
+}
+
+.hudson-info {}
+
+.hudson-heading {
+	font-size: 2rem;
+	margin-bottom: 20px;
+}
+
+.hudson-subtitle {
+	font-size: 1.125rem;
+}
+
+.hudson-image {
+	filter: drop-shadow(-30px 20px 20px #0000007a);
+	scale: -1 1;
+	max-width: 50%;
+}
+
+/*Адаптация Hudson*/
+@media(max-width:1100px) {
+	.hudson {
+		background: url(/icons/Cars.svg) no-repeat center right / 500px 250px,
+			var(--doc-color) url(/icons/Piston-cup-logo.svg) no-repeat bottom -50px left -100px / 400px 337px;
+	}
+}
+
+@media(max-width:920px) {
+	.hudson {
+		background: var(--doc-color) url(/icons/Piston-cup-logo.svg) no-repeat center / 600px 437px;
+	}
+
+	.hudson-container {
+		flex-direction: column;
+		row-gap: 30px;
+	}
+
+	.hudson-image {
+
+		max-width: 100%;
+	}
+}
+
+@media(max-width:570px) {
+	.hudson-container {
+		padding-inline: 20px;
+	}
+
+	.hudson-info {
+		text-align: center;
+	}
+
+	.hudson {
+		background: var(--doc-color) url(/icons/Piston-cup-logo.svg) no-repeat center / 400px 337px;
+	}
+
+}
+
+/*Стилизация King*/
+.king {
+	background: url(/icons/Dinoco.svg) no-repeat right -200px center,
+		var(--king-blue-color) url(/icons/43.svg) no-repeat left bottom;
+}
+
+.king-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	column-gap: 50px;
+	padding-block: 8%;
+	align-items: center;
+}
+
+
+.king-image {
+	max-width: 50%;
+	filter: drop-shadow(-30px 20px 20px #0000007a);
+}
+
+.king-info {}
+
+.king-heading {
+	font-size: 2rem;
+	margin-bottom: 20px;
+}
+
+.king-subtitle {
+	font-size: 1.125rem;
+}
+
+/*Адаптация King*/
+@media(max-width:1100px) {
+	.king {
+		background: url(/icons/Dinoco.svg) no-repeat right -200px center / 530px 406px,
+			var(--king-blue-color) url(/icons/43.svg) no-repeat left bottom;
+	}
+}
+
+@media(max-width:920px) {
+	.king {
+		background: var(--king-blue-color) url(/icons/Dinoco.svg) no-repeat center / 530px 406px;
+	}
+
+	.king-container {
+		flex-direction: column-reverse;
+		row-gap: 30px;
+	}
+
+	.king-image {
+		max-width: 90%;
+	}
+}
+
+@media(max-width:570px) {
+	.king-image {
+		max-width: 100%;
+	}
+
+	.king-container {
+		padding-inline: 20px;
+	}
+
+	.king-info {
+		text-align: center;
+	}
+
+}
+
+/*Стилизация Luidgi*/
+.luidgi {
+	background: url(/icons/wheel.svg) no-repeat top 30px right / 512px 349px,
+		var(--luidgi-yellow-color) url(/icons/Cars.svg) no-repeat left -450px center / contain;
+}
+
+.luidgi-container {
+	display: flex;
+	flex-direction: row;
+	column-gap: 50px;
+	padding-block: 8%;
+	align-items: center;
+	justify-content: space-between;
+	color: var(--luidgi-black-font-color);
+}
+
+.luidgi-info {}
+
+.luidgi-heading {
+	font-size: 2rem;
+	margin-bottom: 20px;
+}
+
+.luidgi-subtitle {
+	font-size: 1.125rem;
+}
+
+.luidgi-image {
+	max-width: 40%;
+	filter: drop-shadow(-30px 20px 20px #0000007a);
+	scale: -1 1;
+}
+
+/*Адаптация Luidgi*/
+@media(max-width:1100px) {
+	.luidgi {
+		background: var(--luidgi-yellow-color) url(/icons/Cars.svg)no-repeat center;
+	}
+}
+
+@media(max-width:920px) {
+
+	.luidgi-container {
+		flex-direction: column;
+		row-gap: 30px;
+	}
+
+	.luidgi-image {
+		max-width: 60%;
+	}
+
+	.luidgi {
+		background: var(--luidgi-yellow-color) url(/icons/Cars.svg)no-repeat center / contain;
+	}
+}
+
+@media(max-width:570px) {
+
+	.luidgi-container {
+		padding-inline: 20px;
+	}
+
+	.luidgi-info {
+		text-align: center;
+	}
+
+}
+
+/*Стилизация Ramones*/
+.ramones {
+	background: url(/icons/Rusteze.svg) no-repeat right 100px center / 556px 467px,
+		var(--ramon-purple-color) url(/icons/95.svg) no-repeat top left -50px/ 539px 319px;
+}
+
+.ramones-container {
+	display: flex;
+	flex-direction: row;
+	column-gap: 50px;
+	padding-block: 8%;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.container {}
+
+.ramones-image {
+	max-width: 50%;
+	filter: drop-shadow(-30px 20px 20px #0000007a);
+}
+
+.ramones-info {}
+
+.ramones-heading {
+	font-size: 2rem;
+	margin-bottom: 20px;
+}
+
+.ramones-subtitle {
+	font-size: 1.125rem;
+}
+
+/*Адаптация Ramones*/
+@media(max-width:1200px) {
+	.ramones {
+		background: url(/icons/Rusteze.svg) no-repeat right 100px center / 467px 367px,
+			var(--ramon-purple-color) url(/icons/95.svg) no-repeat top left -50px/ 439px 219px;
+	}
+}
+
+@media(max-width:1100px) {
+	.ramones {
+		background: url(/icons/Rusteze.svg) no-repeat right 30px center / 337px 327px,
+			var(--ramon-purple-color) url(/icons/95.svg) no-repeat top left -50px/ 439px 219px;
+	}
+}
+
+@media(max-width:920px) {
+
+	.ramones-container {
+		flex-direction: column-reverse;
+		row-gap: 30px;
+	}
+
+	.ramones-image {
+		max-width: 100%;
+	}
+
+	.ramones {
+		background: var(--ramon-purple-color)url(/icons/Rusteze.svg) no-repeat center / 550px 550px;
+	}
+}
+
+@media(max-width:570px) {
+
+	.ramones-container {
+		padding-inline: 20px;
+	}
+
+	.ramones-info {
+		text-align: center;
+	}
+
+	.ramones {
+		background: var(--ramon-purple-color)url(/icons/Rusteze.svg) no-repeat center / 450px 450px;
+	}
+
+}
+
+/*Стилизация Sally*/
+
+.sally {
+	background: url(/icons/Piston-cup-logo.svg) no-repeat right -150px top -50px / 450px 370px,
+		var(--sally-clue-color) url(/icons/porsche-svgrepo-com.svg) no-repeat left -150px center / 484px 484px;
+
+}
+
+.sally-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	column-gap: 50px;
+	padding-block: 8%;
+}
+
+.sally-info {}
+
+.sally-heading {
+	margin-bottom: 20px;
+	font-size: 2rem;
+}
+
+.sally-subtitle {
+	font-size: 1.125rem;
+}
+
+.sally-image {
+	scale: -1 1;
+	max-width: 50%;
+	filter: drop-shadow(-30px 20px 20px #0000007a);
+}
+
+/*Адаптация Sally*/
+
+@media(max-width:1100px) {
+	.sally {
+		background: url(/icons/Piston-cup-logo.svg) no-repeat right -150px top -50px / 420px 340px,
+			var(--sally-clue-color) url(/icons/porsche-svgrepo-com.svg) no-repeat left -150px center / 384px 384px;
+	}
+}
+
+@media(max-width:920px) {
+
+	.sally-container {
+		flex-direction: column;
+		row-gap: 30px;
+	}
+
+	.sally-image {
+		max-width: 100%;
+	}
+
+	.sally {
+		background: var(--sally-clue-color) url(/icons/porsche-svgrepo-com.svg) no-repeat center;
+	}
+}
+
+@media(max-width:570px) {
+
+	.sally-container {
+		padding-inline: 20px;
+	}
+
+	.sally-info {
+		text-align: center;
+	}
+
+	.sally {
+		background: var(--sally-clue-color) url(/icons/porsche-svgrepo-com.svg) no-repeat center / 384px 384px;
+	}
+
+}
+
+/*Стилизация Footer*/
+.footer {
+	background-color: var(--gray-color);
+
+}
+
+.footer-container {
+	padding-block: 3.704vh;
+}
+
+
+.footer-nav-bar {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.footer-logo-link {
+	display: block;
+}
+
+.footer-logo {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	column-gap: 17px;
+	font-weight: 700;
+	font-size: 1.5rem;
+}
+
+.footer-nav-list {
+	font-size: 1.188rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	column-gap: 100px;
+}
+
+.footer-nav-list .nav-list-item {
+	position: relative;
+}
+
+.footer-nav-list .nav-list-item:before {
+	content: "";
+	width: 0px;
+	height: 2px;
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	background-color: #ffffff;
+	transition: all 0.2s;
+}
+
+.footer-nav-list .nav-list-item:hover:before {
+	width: 100%;
+}
+
+
+.footer-market-group {
+	display: flex;
+	column-gap: 22px;
+}
+
+.footer-market-link {
+	border-radius: 13px;
+	border: 2px solid transparent;
+	padding: 4px;
+	transition: border 0.2s;
+}
+
+.footer-market-link:hover {
+	border: 2px solid #ffffff;
+}
+
+/*Адаптация Footer*/
+@media(max-width:900px) {
+	.footer-nav-bar {
+		flex-wrap: wrap;
+		row-gap: 30px;
+	}
+
+	.footer-nav-list {
+		order: 1;
+		width: 100%;
+		display: none;
+	}
+}
+
+@media(max-width:570px) {
+	.footer-container {
+		padding-inline: 20px;
+	}
+
+	.footer-market-group {
+		column-gap: 0px;
+	}
+}
