@@ -265,6 +265,7 @@ a:active {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	column-gap: 10px;
 }
 
 .header-logo-link {
@@ -277,7 +278,11 @@ a:active {
 	align-items: center;
 	column-gap: 17px;
 	font-weight: 700;
-	font-size: 1.5rem;
+	font-size: 1.3rem;
+}
+
+.header-logo img {
+	max-width: 100px;
 }
 
 .header-nav-list {
@@ -327,24 +332,36 @@ a:active {
 
 /*Адаптация Header*/
 @media(max-width:900px) {
-	.header-nav-bar {
-		flex-wrap: wrap;
-		row-gap: 30px;
-	}
+	.header-nav-bar {}
+
 
 	.header-nav-list {
-		order: 1;
-		width: 100%;
+		column-gap: 25px;
 	}
 }
 
 @media(max-width:570px) {
+	.header-market-group {}
+
 	.header-nav-list {
 		column-gap: 15px;
 	}
 
 	.header-container {
 		padding-inline: 20px;
+	}
+}
+
+@media(max-width:500px) {
+
+	.header-market-group {
+		flex-direction: column;
+	}
+
+	.header-nav-list {
+		column-gap: 15px;
+		flex-direction: column;
+		row-gap: 10px;
 	}
 }
 
