@@ -263,14 +263,6 @@ a:active {
 	display: block;
 }
 
-.header-logo {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	column-gap: 17px;
-	font-weight: 700;
-	font-size: 1.3rem;
-}
 
 .header-logo img {
 	max-width: 100px;
@@ -305,6 +297,23 @@ a:active {
 
 .nav-list-link {}
 
+.header-social-group {
+	display: flex;
+	column-gap: 22px;
+}
+
+.header-social-link {
+	border-radius: 50%;
+	border: 2px solid transparent;
+	padding: 4px;
+	transition: border 0.2s;
+	max-width: 48px;
+}
+
+.header-social-link:hover {
+	border: 2px solid #ffffff;
+}
+
 .header-market-group {
 	display: flex;
 	column-gap: 22px;
@@ -331,6 +340,16 @@ a:active {
 	}
 }
 
+@media(max-width:750px) {
+	.header-market-group {
+		flex-direction: column;
+	}
+
+	.header-social-group {
+		flex-direction: column;
+	}
+}
+
 @media(max-width:570px) {
 	.header-market-group {}
 
@@ -344,15 +363,18 @@ a:active {
 }
 
 @media(max-width:500px) {
-
-	.header-market-group {
-		flex-direction: column;
+	.header-logo img {
+		max-width: 80px;
 	}
 
 	.header-nav-list {
 		column-gap: 15px;
 		flex-direction: column;
 		row-gap: 10px;
+	}
+
+	.header-nav-list {
+		font-size: 1rem;
 	}
 }
 
@@ -397,7 +419,7 @@ a:active {
 	content: "";
 	position: absolute;
 	top: -35px;
-	right: -100px;
+	right: -130px;
 	width: 168px;
 	height: 67px;
 	background-image: url(/icons/Yellow-Lightning.svg);

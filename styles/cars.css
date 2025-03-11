@@ -330,6 +330,23 @@ a:active {
 	border: 2px solid #ffffff;
 }
 
+.header-social-group {
+	display: flex;
+	column-gap: 22px;
+}
+
+.header-social-link {
+	border-radius: 50%;
+	border: 2px solid transparent;
+	padding: 4px;
+	transition: border 0.2s;
+	max-width: 48px;
+}
+
+.header-social-link:hover {
+	border: 2px solid #ffffff;
+}
+
 /*Адаптация Header*/
 @media(max-width:900px) {
 	.header-nav-bar {}
@@ -337,6 +354,16 @@ a:active {
 
 	.header-nav-list {
 		column-gap: 25px;
+	}
+}
+
+@media(max-width:750px) {
+	.header-market-group {
+		flex-direction: column;
+	}
+
+	.header-social-group {
+		flex-direction: column;
 	}
 }
 
@@ -353,15 +380,18 @@ a:active {
 }
 
 @media(max-width:500px) {
-
-	.header-market-group {
-		flex-direction: column;
+	.header-logo img {
+		max-width: 80px;
 	}
 
 	.header-nav-list {
 		column-gap: 15px;
 		flex-direction: column;
 		row-gap: 10px;
+	}
+
+	.header-nav-list {
+		font-size: 1rem;
 	}
 }
 
