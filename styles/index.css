@@ -387,7 +387,7 @@ a:active {
 	align-items: center;
 	justify-content: space-between;
 	column-gap: 40px;
-	padding-top: 13%;
+	padding-top: 10%;
 	position: relative;
 }
 
@@ -430,6 +430,9 @@ a:active {
 	display: flex;
 	flex-direction: row;
 	column-gap: 20px;
+	flex-wrap: wrap;
+	row-gap: 30px;
+	justify-content: space-between;
 }
 
 .macqueen-buy-button {
@@ -444,6 +447,13 @@ a:active {
 	column-gap: 10px;
 	border-radius: 50px;
 	transition: all 0.2s;
+	width: 48%;
+	justify-content: space-between;
+}
+
+.macqueen-buy-button.catalog {
+	width: 100%;
+	justify-content: space-between;
 }
 
 .macqueen-buy-button:hover {
@@ -534,6 +544,12 @@ a:active {
 		background-repeat: no-repeat;
 	}
 
+}
+
+@media(max-width:1200px) {
+	.macqueen-buy-button {
+		width: 100%;
+	}
 }
 
 @media(max-width:1165px) {
@@ -657,6 +673,13 @@ a:active {
 	display: flex;
 	flex-direction: row;
 	column-gap: 20px;
+	flex-wrap: wrap;
+	row-gap: 30px;
+}
+
+.thomas-buy-button.catalog {
+	width: 100%;
+	justify-content: space-between;
 }
 
 .thomas-buy-button {
@@ -671,6 +694,8 @@ a:active {
 	column-gap: 10px;
 	border-radius: 50px;
 	transition: all 0.2s;
+	width: 48%;
+	justify-content: space-between;
 }
 
 .thomas-buy-button:hover {
@@ -730,6 +755,12 @@ a:active {
 	.thomas-info-heading:after {
 		width: 40px;
 		height: 120px;
+	}
+}
+
+@media(max-width:1200px) {
+	.thomas-buy-button {
+		width: 100%;
 	}
 }
 
