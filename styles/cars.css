@@ -963,6 +963,23 @@ a:active {
 	position: relative;
 }
 
+.footer-social-group {
+	display: flex;
+	column-gap: 22px;
+}
+
+.footer-social-link {
+	border-radius: 50%;
+	border: 2px solid transparent;
+	padding: 4px;
+	transition: border 0.2s;
+	max-width: 48px;
+}
+
+.footer-social-link:hover {
+	border: 2px solid #ffffff;
+}
+
 .footer-nav-list .nav-list-item:before {
 	content: "";
 	width: 0px;
@@ -1003,9 +1020,17 @@ a:active {
 	}
 
 	.footer-nav-list {
-		order: 1;
-		width: 100%;
-		display: none;
+		column-gap: 30px;
+	}
+}
+
+@media(max-width:800px) {
+
+	.footer-nav-list,
+	.footer-market-group,
+	.footer-social-group {
+		flex-direction: column;
+		row-gap: 5px;
 	}
 }
 
@@ -1016,5 +1041,15 @@ a:active {
 
 	.footer-market-group {
 		column-gap: 0px;
+	}
+}
+
+@media(max-width:500px) {
+	.footer-logo-link img {
+		max-width: 80px;
+	}
+
+	.footer-nav-list {
+		font-size: 1rem;
 	}
 }
