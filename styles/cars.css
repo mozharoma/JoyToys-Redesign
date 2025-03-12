@@ -209,6 +209,7 @@ svg * {
 	--base-font: "Open Sans";
 	--base-font-color: #ffffff;
 	--red-color: #CB453C;
+	--matr-color: #84552E;
 	--blue-color: #2D81B5;
 	--brown-color: #CF7C00;
 	--gray-color: #474747;
@@ -468,454 +469,387 @@ a:active {
 
 }
 
-/*Стилизация Storm*/
+/*Стилизация Cards*/
+.cards {
+	background-color: var(--lightblue-color);
+	padding-bottom: 5%;
+}
+
+.cards-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 30px 20px;
+}
+
+
+.card {
+	max-width: 32%;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 30px;
+	box-shadow: 0px 0px 10px 10px #00000031;
+	transition: all 0.2s;
+
+}
+
+.card:hover {
+	box-shadow: 0px 0px 10px 10px #00000050;
+}
+
 
 .storm {
-	background: url(/icons/Storm-logo.svg) no-repeat left -200px bottom 30% / 730px 235px,
-		url(/icons/20.svg) no-repeat bottom -50px right -100px / 400px 329px,
-		var(--storm-blue) url(/icons/IGNTR.svg) no-repeat top 50px right -150px / 600px 150px;
+	background-color: var(--storm-blue);
 }
 
-.storm-container {
-	padding-block: 8%;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	column-gap: 50px;
+.lightning {
+	background-color: var(--red-color);
 }
 
-.container {}
-
-.storm-image {
-	max-width: 45%;
-	filter: drop-shadow(-30px 20px 20px #0000009d);
+.matr {
+	background-color: var(--matr-color);
 }
 
-.storm-info {}
-
-.storm-heading {
-	font-size: 2.2rem;
-	margin-bottom: 20px;
+.matr img {
+	max-width: 250px;
 }
 
-.storm-subtitle {
-	font-size: 1.125rem;
-	font-weight: 600;
-}
-
-/*Адаптация Storm*/
-@media(max-width:1200px) {
-
-	.storm {
-		background: url(/icons/Storm-logo.svg) no-repeat left -200px top / 680px 150px,
-			var(--storm-blue) url(/icons/IGNTR.svg) no-repeat bottom right -150px / 600px 150px;
-	}
-}
-
-@media(max-width:920px) {
-	.storm-container {
-		flex-direction: column-reverse;
-		row-gap: 30px;
-	}
-
-	.storm-image {
-		max-width: 80%;
-	}
-}
-
-@media(max-width:830px) {
-	.storm-heading {
-		font-size: 1.7rem;
-	}
-
-	.storm-subtitle {
-		font-size: 1rem;
-	}
-}
-
-@media(max-width:640px) {
-	.storm {
-		background: var(--storm-blue) url(/icons/IGNTR.svg) no-repeat center center / 700px 250px;
-	}
-}
-
-@media(max-width:570px) {
-	.storm-container {
-		padding-inline: 20px;
-	}
-
-	.storm-info {
-		text-align: center;
-	}
-}
-
-@media(max-width:430px) {
-	.storm {
-		background: var(--storm-blue) url(/icons/IGNTR.svg) no-repeat center center / 500px 150px;
-	}
-}
-
-/*Стилизация Hudson*/
 .hudson {
-	background: url(/icons/Cars.svg) no-repeat center right / 650px 350px,
-		var(--doc-color) url(/icons/Piston-cup-logo.svg) no-repeat bottom -50px left -100px / 450px 397px;
+	background-color: var(--doc-color);
 }
 
-.hudson-container {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	column-gap: 50px;
-	padding-block: 8%;
+.sally {
+	background-color: var(--sally-clue-color);
 }
 
-.hudson-info {}
-
-.hudson-heading {
-	font-size: 2rem;
-	margin-bottom: 20px;
+.ramires {
+	background-color: #FECE54;
 }
 
-.hudson-subtitle {
-	font-size: 1.125rem;
-}
-
-.hudson-image {
-	filter: drop-shadow(-30px 20px 20px #0000007a);
-	scale: -1 1;
-	max-width: 50%;
-}
-
-/*Адаптация Hudson*/
-@media(max-width:1100px) {
-	.hudson {
-		background: url(/icons/Cars.svg) no-repeat center right / 500px 250px,
-			var(--doc-color) url(/icons/Piston-cup-logo.svg) no-repeat bottom -50px left -100px / 400px 337px;
-	}
-}
-
-@media(max-width:920px) {
-	.hudson {
-		background: var(--doc-color) url(/icons/Piston-cup-logo.svg) no-repeat center / 600px 437px;
-	}
-
-	.hudson-container {
-		flex-direction: column;
-		row-gap: 30px;
-	}
-
-	.hudson-image {
-
-		max-width: 100%;
-	}
-}
-
-@media(max-width:570px) {
-	.hudson-container {
-		padding-inline: 20px;
-	}
-
-	.hudson-info {
-		text-align: center;
-	}
-
-	.hudson {
-		background: var(--doc-color) url(/icons/Piston-cup-logo.svg) no-repeat center / 400px 337px;
-	}
-
-}
-
-/*Стилизация King*/
 .king {
-	background: url(/icons/Dinoco.svg) no-repeat right -200px center,
-		var(--king-blue-color) url(/icons/43.svg) no-repeat left bottom;
+	background-color: var(--king-blue-color);
 }
 
-.king-container {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	column-gap: 50px;
-	padding-block: 8%;
-	align-items: center;
+.france {
+	background-color: #017B3A;
 }
 
-
-.king-image {
-	max-width: 50%;
-	filter: drop-shadow(-30px 20px 20px #0000007a);
+.chicko {
+	background-color: #6dbe51;
 }
 
-.king-info {}
-
-.king-heading {
-	font-size: 2rem;
-	margin-bottom: 20px;
-}
-
-.king-subtitle {
-	font-size: 1.125rem;
-}
-
-/*Адаптация King*/
-@media(max-width:1100px) {
-	.king {
-		background: url(/icons/Dinoco.svg) no-repeat right -200px center / 530px 406px,
-			var(--king-blue-color) url(/icons/43.svg) no-repeat left bottom;
-	}
-}
-
-@media(max-width:920px) {
-	.king {
-		background: var(--king-blue-color) url(/icons/Dinoco.svg) no-repeat center / 530px 406px;
-	}
-
-	.king-container {
-		flex-direction: column-reverse;
-		row-gap: 30px;
-	}
-
-	.king-image {
-		max-width: 90%;
-	}
-}
-
-@media(max-width:570px) {
-	.king-image {
-		max-width: 100%;
-	}
-
-	.king-container {
-		padding-inline: 20px;
-	}
-
-	.king-info {
-		text-align: center;
-	}
-
-}
-
-/*Стилизация Luidgi*/
-.luidgi {
-	background: url(/icons/wheel.svg) no-repeat top 30px right / 512px 349px,
-		var(--luidgi-yellow-color) url(/icons/Cars.svg) no-repeat left -450px center / contain;
-}
-
-.luidgi-container {
-	display: flex;
-	flex-direction: row;
-	column-gap: 50px;
-	padding-block: 8%;
-	align-items: center;
-	justify-content: space-between;
+.finn {
+	background-color: #f7f7f7;
 	color: var(--luidgi-black-font-color);
 }
 
-.luidgi-info {}
+.sheriff {
+	background-color: #1C1E28;
+}
 
-.luidgi-heading {
-	font-size: 2rem;
+.quido {
+	background-color: #8BBFE7;
+}
+
+.quido img {
+	max-width: 200px;
+}
+
+.card-image {
+	margin: 0 auto 20px;
+	flex-grow: 0;
+}
+
+.card-info {
 	margin-bottom: 20px;
+	flex-grow: 1;
 }
 
-.luidgi-subtitle {
-	font-size: 1.125rem;
+.card-name {
+	font-weight: 700;
+	font-size: 1.5rem;
 }
 
-.luidgi-image {
-	max-width: 40%;
-	filter: drop-shadow(-30px 20px 20px #0000007a);
-	scale: -1 1;
-}
+.card-description {}
 
-/*Адаптация Luidgi*/
-@media(max-width:1100px) {
-	.luidgi {
-		background: var(--luidgi-yellow-color) url(/icons/Cars.svg)no-repeat center;
-	}
-}
-
-@media(max-width:920px) {
-
-	.luidgi-container {
-		flex-direction: column;
-		row-gap: 30px;
-	}
-
-	.luidgi-image {
-		max-width: 60%;
-	}
-
-	.luidgi {
-		background: var(--luidgi-yellow-color) url(/icons/Cars.svg)no-repeat center / contain;
-	}
-}
-
-@media(max-width:570px) {
-
-	.luidgi-container {
-		padding-inline: 20px;
-	}
-
-	.luidgi-info {
-		text-align: center;
-	}
-
-}
-
-/*Стилизация Ramones*/
-.ramones {
-	background: url(/icons/Rusteze.svg) no-repeat right 100px center / 556px 467px,
-		var(--ramon-purple-color) url(/icons/95.svg) no-repeat top left -50px/ 539px 319px;
-}
-
-.ramones-container {
+.card-buy-group {
 	display: flex;
-	flex-direction: row;
-	column-gap: 50px;
-	padding-block: 8%;
-	align-items: center;
-	justify-content: space-between;
+	flex-direction: column;
+	row-gap: 13px;
 }
 
-.container {}
-
-.ramones-image {
-	max-width: 50%;
-	filter: drop-shadow(-30px 20px 20px #0000007a);
-}
-
-.ramones-info {}
-
-.ramones-heading {
-	font-size: 2rem;
-	margin-bottom: 20px;
-}
-
-.ramones-subtitle {
-	font-size: 1.125rem;
-}
-
-/*Адаптация Ramones*/
-@media(max-width:1200px) {
-	.ramones {
-		background: url(/icons/Rusteze.svg) no-repeat right 100px center / 467px 367px,
-			var(--ramon-purple-color) url(/icons/95.svg) no-repeat top left -50px/ 439px 219px;
-	}
-}
-
-@media(max-width:1100px) {
-	.ramones {
-		background: url(/icons/Rusteze.svg) no-repeat right 30px center / 337px 327px,
-			var(--ramon-purple-color) url(/icons/95.svg) no-repeat top left -50px/ 439px 219px;
-	}
-}
-
-@media(max-width:920px) {
-
-	.ramones-container {
-		flex-direction: column-reverse;
-		row-gap: 30px;
-	}
-
-	.ramones-image {
-		max-width: 100%;
-	}
-
-	.ramones {
-		background: var(--ramon-purple-color)url(/icons/Rusteze.svg) no-repeat center / 550px 550px;
-	}
-}
-
-@media(max-width:570px) {
-
-	.ramones-container {
-		padding-inline: 20px;
-	}
-
-	.ramones-info {
-		text-align: center;
-	}
-
-	.ramones {
-		background: var(--ramon-purple-color)url(/icons/Rusteze.svg) no-repeat center / 450px 450px;
-	}
-
-}
-
-/*Стилизация Sally*/
-
-.sally {
-	background: url(/icons/Piston-cup-logo.svg) no-repeat right -150px top -50px / 450px 370px,
-		var(--sally-clue-color) url(/icons/porsche-svgrepo-com.svg) no-repeat left -150px center / 484px 484px;
-
-}
-
-.sally-container {
+.card-buy-button {
+	border: 2px solid #ffffff;
+	font-size: 1rem;
+	background-color: transparent;
+	padding: 5px 5px 5px 15px;
+	font-weight: 700;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	column-gap: 10px;
+	border-radius: 10px;
+	transition: all 0.2s;
+	width: 100%;
 	justify-content: space-between;
-	column-gap: 50px;
-	padding-block: 8%;
 }
 
-.sally-info {}
-
-.sally-heading {
-	margin-bottom: 20px;
-	font-size: 2rem;
+/*Кнопки storm*/
+.storm .card-buy-button:hover {
+	background-color: #fff;
+	color: var(--storm-blue);
 }
 
-.sally-subtitle {
-	font-size: 1.125rem;
+.storm .card-buy-button:hover .card-button-circle {
+	background-color: var(--storm-blue);
 }
 
-.sally-image {
-	scale: -1 1;
-	max-width: 50%;
-	filter: drop-shadow(-30px 20px 20px #0000007a);
+.storm .card-buy-button .card-button-circle svg path {
+	fill: var(--storm-blue);
 }
 
-/*Адаптация Sally*/
+.storm .card-buy-button:hover .card-button-circle svg path {
+	fill: #ffffff;
+}
 
+/*Кнопки lightning*/
+.lightning .card-buy-button:hover {
+	background-color: #fff;
+	color: var(--red-color);
+}
+
+.lightning .card-buy-button:hover .card-button-circle {
+	background-color: var(--red-color);
+}
+
+.lightning .card-buy-button .card-button-circle svg path {
+	fill: var(--red-color);
+}
+
+.lightning .card-buy-button:hover .card-button-circle svg path {
+	fill: #ffffff;
+}
+
+/*Кнопки Matr*/
+.matr .card-buy-button:hover {
+	background-color: #fff;
+	color: var(--matr-color);
+}
+
+.matr .card-buy-button:hover .card-button-circle {
+	background-color: var(--matr-color);
+}
+
+.matr .card-buy-button .card-button-circle svg path {
+	fill: var(--matr-color);
+}
+
+.matr .card-buy-button:hover .card-button-circle svg path {
+	fill: #ffffff;
+}
+
+/*Кнопки Hudson*/
+.hudson .card-buy-button:hover {
+	background-color: #fff;
+	color: var(--doc-color);
+}
+
+.hudson .card-buy-button:hover .card-button-circle {
+	background-color: var(--doc-color);
+}
+
+.hudson .card-buy-button .card-button-circle svg path {
+	fill: var(--doc-color);
+}
+
+.hudson .card-buy-button:hover .card-button-circle svg path {
+	fill: #ffffff;
+}
+
+/*Кнопки Sally*/
+.sally .card-buy-button:hover {
+	background-color: #fff;
+	color: var(--sally-clue-color);
+}
+
+.sally .card-buy-button:hover .card-button-circle {
+	background-color: var(--sally-clue-color);
+}
+
+.sally .card-buy-button .card-button-circle svg path {
+	fill: var(--sally-clue-color);
+}
+
+.sally .card-buy-button:hover .card-button-circle svg path {
+	fill: #ffffff;
+}
+
+/*Кнопки Ramires*/
+.ramires .card-buy-button:hover {
+	background-color: #fff;
+	color: #FECE54;
+}
+
+.ramires .card-buy-button:hover .card-button-circle {
+	background-color: #FECE54;
+}
+
+.ramires .card-buy-button .card-button-circle svg path {
+	fill: #FECE54;
+}
+
+.ramires .card-buy-button:hover .card-button-circle svg path {
+	fill: #ffffff;
+}
+
+/*Кнопки King*/
+.king .card-buy-button:hover {
+	background-color: #fff;
+	color: var(--king-blue-color);
+}
+
+.king .card-buy-button:hover .card-button-circle {
+	background-color: var(--king-blue-color);
+}
+
+.king .card-buy-button .card-button-circle svg path {
+	fill: var(--king-blue-color);
+}
+
+.king .card-buy-button:hover .card-button-circle svg path {
+	fill: #ffffff;
+}
+
+/*Кнопки France*/
+.france .card-buy-button:hover {
+	background-color: #fff;
+	color: #017B3A;
+}
+
+.france .card-buy-button:hover .card-button-circle {
+	background-color: #017B3A;
+}
+
+.france .card-buy-button .card-button-circle svg path {
+	fill: #017B3A;
+}
+
+.france .card-buy-button:hover .card-button-circle svg path {
+	fill: #ffffff;
+}
+
+/*Кнопки Chicko*/
+.chicko .card-buy-button:hover {
+	background-color: #fff;
+	color: #6dbe51;
+}
+
+.chicko .card-buy-button:hover .card-button-circle {
+	background-color: #6dbe51;
+}
+
+.chicko .card-buy-button .card-button-circle svg path {
+	fill: #6dbe51;
+}
+
+.chicko .card-buy-button:hover .card-button-circle svg path {
+	fill: #ffffff;
+}
+
+/*Кнопки Finn*/
+.finn .card-buy-button:hover {
+	background-color: #7A95B0;
+	color: #fff
+}
+
+.finn .card-buy-button {
+	border-color: #7A95B0;
+	color: #7A95B0;
+}
+
+.finn .card-button-circle {
+	background-color: #7A95B0;
+}
+
+.finn .card-buy-button:hover .card-button-circle {
+	background-color: #fff;
+}
+
+.finn .card-buy-button:hover .card-button-circle svg path {
+	fill: #7A95B0;
+}
+
+/*Кнопки Sheriff*/
+.sheriff .card-buy-button:hover {
+	background-color: #fff;
+	color: #1C1E28;
+}
+
+.sheriff .card-buy-button:hover .card-button-circle {
+	background-color: #1C1E28;
+}
+
+.sheriff .card-buy-button .card-button-circle svg path {
+	fill: #1C1E28;
+}
+
+.sheriff .card-buy-button:hover .card-button-circle svg path {
+	fill: #ffffff;
+}
+
+/*Кнопки Guido*/
+.quido .card-buy-button:hover {
+	background-color: #fff;
+	color: #8BBFE7
+}
+
+.quido .card-buy-button:hover .card-button-circle {
+	background-color: #8BBFE7;
+}
+
+.quido .card-buy-button .card-button-circle svg path {
+	fill: #8BBFE7;
+}
+
+.quido .card-buy-button:hover .card-button-circle svg path {
+	fill: #ffffff;
+}
+
+.card-button-circle {
+	background-color: #ffffff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 36px;
+	aspect-ratio: 1;
+	border-radius: 5px;
+}
+
+.alternate {}
+
+/*Адаптация Cards*/
 @media(max-width:1100px) {
-	.sally {
-		background: url(/icons/Piston-cup-logo.svg) no-repeat right -150px top -50px / 420px 340px,
-			var(--sally-clue-color) url(/icons/porsche-svgrepo-com.svg) no-repeat left -150px center / 384px 384px;
-	}
-}
-
-@media(max-width:920px) {
-
-	.sally-container {
-		flex-direction: column;
-		row-gap: 30px;
+	.card {
+		max-width: 48%;
 	}
 
-	.sally-image {
+	.matr img {
 		max-width: 100%;
 	}
+}
 
-	.sally {
-		background: var(--sally-clue-color) url(/icons/porsche-svgrepo-com.svg) no-repeat center;
+@media(max-width:600px) {
+	.card {
+		max-width: 100%;
 	}
 }
 
 @media(max-width:570px) {
-
-	.sally-container {
+	.cards-container {
 		padding-inline: 20px;
-	}
-
-	.sally-info {
-		text-align: center;
-	}
-
-	.sally {
-		background: var(--sally-clue-color) url(/icons/porsche-svgrepo-com.svg) no-repeat center / 384px 384px;
 	}
 
 }
