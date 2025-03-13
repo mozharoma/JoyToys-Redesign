@@ -1018,7 +1018,9 @@ a:active {
 	padding: 4px;
 	transition: border 0.2s;
 }
-
+.footer-logo-link img {
+	max-width: 100px;
+}
 .footer-market-link img {
 	width: 48px;
 }
