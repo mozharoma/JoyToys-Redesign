@@ -287,7 +287,7 @@ a:active {
 }
 
 .header-nav-list {
-	font-size: 1.188rem;
+	font-size: 1.35rem;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -321,10 +321,14 @@ a:active {
 }
 
 .header-market-link {
-	border-radius: 13px;
+	border-radius: 16px;
 	border: 2px solid transparent;
 	padding: 4px;
 	transition: border 0.2s;
+}
+
+.header-market-link img {
+	width: 48px;
 }
 
 .header-market-link:hover {
@@ -341,7 +345,7 @@ a:active {
 	border: 2px solid transparent;
 	padding: 4px;
 	transition: border 0.2s;
-	max-width: 48px;
+	max-width: 58px;
 }
 
 .header-social-link:hover {
@@ -403,7 +407,6 @@ a:active {
 	background: url(/icons/Piston-cup-logo.svg) no-repeat bottom right -100px /450px 370px,
 		url("/icons/95.svg") no-repeat left -100px top / 509px 301px,
 		var(--lightblue-color) url(/icons/Rusteze.svg) no-repeat center / 550px 550px;
-	height: 88vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -471,7 +474,8 @@ a:active {
 
 /*Стилизация Cards*/
 .cards {
-	background-color: var(--lightblue-color);
+	background: url(/icons/porsche-svgrepo-com.svg) no-repeat center right -200px / 700px 700px,
+		var(--lightblue-color) url(/icons/Dinoco.svg) no-repeat top left -200px / 600px 600px;
 	padding-bottom: 5%;
 }
 
@@ -481,6 +485,7 @@ a:active {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	gap: 30px 20px;
+
 }
 
 
@@ -847,11 +852,83 @@ a:active {
 	}
 }
 
+
 @media(max-width:570px) {
 	.cards-container {
 		padding-inline: 20px;
 	}
 
+	.cards {
+		background: var(--lightblue-color);
+		padding-bottom: 5%;
+	}
+}
+
+/*Стилизация Banner*/
+.banner-container {
+	background: url(/icons/Rusteze.svg) no-repeat center right / 300px 300px, #017B3A url(/icons/95.svg) no-repeat center left / 300px 300px;
+	width: 100%;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px 10px #00000031;
+}
+
+
+.banner-info {
+	font-size: 1.35rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	column-gap: 20px;
+	align-items: center;
+}
+
+.banner-link {
+	display: inline-block;
+	border: 2px solid #ffffff;
+	padding: 10px;
+	border-radius: 10px;
+	transition: all 0.2s;
+}
+
+.banner-link:hover {
+	background-color: #ffffff;
+	color: #017B3A;
+
+}
+
+/*Адаптация Banner*/
+@media(max-width:850px) {
+
+	.banner-container {
+		background: url(/icons/Rusteze.svg) no-repeat center right / 150px 150px, #017B3A url(/icons/95.svg) no-repeat center left / 200px 200px;
+	}
+}
+
+@media(max-width:570px) {
+
+	.banner-container {
+		background: #017B3A url(/icons/Rusteze.svg) no-repeat center / 350px 350px;
+	}
+
+	.banner-info {
+		flex-direction: column;
+		font-size: 1.2rem;
+		text-align: center;
+		row-gap: 20px;
+
+	}
+
+	.banner-link {
+		width: 100%;
+		text-align: center;
+	}
+}
+
+@media(max-width:350px) {
+	.banner-info {
+		font-size: 1rem;
+	}
 }
 
 /*Стилизация Footer*/
@@ -886,7 +963,7 @@ a:active {
 }
 
 .footer-nav-list {
-	font-size: 1.188rem;
+	font-size: 1.35rem;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -907,7 +984,7 @@ a:active {
 	border: 2px solid transparent;
 	padding: 4px;
 	transition: border 0.2s;
-	max-width: 48px;
+	max-width: 58px;
 }
 
 .footer-social-link:hover {
@@ -936,10 +1013,14 @@ a:active {
 }
 
 .footer-market-link {
-	border-radius: 13px;
+	border-radius: 16px;
 	border: 2px solid transparent;
 	padding: 4px;
 	transition: border 0.2s;
+}
+
+.footer-market-link img {
+	width: 48px;
 }
 
 .footer-market-link:hover {
@@ -985,5 +1066,31 @@ a:active {
 
 	.footer-nav-list {
 		font-size: 1rem;
+	}
+
+	.footer-social-link {
+		max-width: 46px;
+	}
+
+	.footer-market-link img {
+		width: 35px;
+
+	}
+
+	.footer-logo-link {
+		border-radius: 13px;
+	}
+
+	.header-social-link {
+		max-width: 46px;
+	}
+
+	.header-market-link img {
+		width: 35px;
+
+	}
+
+	.header-logo-link {
+		border-radius: 13px;
 	}
 }

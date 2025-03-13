@@ -269,7 +269,7 @@ a:active {
 }
 
 .header-nav-list {
-	font-size: 1.188rem;
+	font-size: 1.35rem;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -307,7 +307,7 @@ a:active {
 	border: 2px solid transparent;
 	padding: 4px;
 	transition: border 0.2s;
-	max-width: 48px;
+	max-width: 58px;
 }
 
 .header-social-link:hover {
@@ -320,10 +320,14 @@ a:active {
 }
 
 .header-market-link {
-	border-radius: 13px;
+	border-radius: 16px;
 	border: 2px solid transparent;
 	padding: 4px;
 	transition: border 0.2s;
+}
+
+.header-market-link img {
+	width: 48px;
 }
 
 .header-market-link:hover {
@@ -419,7 +423,7 @@ a:active {
 	content: "";
 	position: absolute;
 	top: -35px;
-	right: -130px;
+	right: -150px;
 	width: 168px;
 	height: 67px;
 	background-image: url(/icons/Yellow-Lightning.svg);
@@ -1145,7 +1149,7 @@ a:active {
 }
 
 .footer-nav-list {
-	font-size: 1.188rem;
+	font-size: 1.35rem;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -1197,11 +1201,19 @@ a:active {
 	border: 2px solid transparent;
 	padding: 4px;
 	transition: border 0.2s;
-	max-width: 48px;
+	max-width: 58px;
 }
 
 .footer-social-link:hover {
 	border: 2px solid #ffffff;
+}
+
+.footer-market-link img {
+	width: 48px;
+}
+
+.footer-market-link {
+	border-radius: 16px;
 }
 
 .footer-market-link:hover {
@@ -1244,4 +1256,31 @@ a:active {
 	.footer-nav-list {
 		font-size: 1rem;
 	}
+
+	.footer-social-link {
+		max-width: 46px;
+	}
+
+	.footer-market-link img {
+		width: 35px;
+
+	}
+
+	.footer-logo-link {
+		border-radius: 13px;
+	}
+
+	.header-social-link {
+		max-width: 46px;
+	}
+
+	.header-market-link img {
+		width: 35px;
+
+	}
+
+	.header-logo-link {
+		border-radius: 13px;
+	}
+
 }
