@@ -716,7 +716,7 @@ a:active {
 }
 
 .thomas-buy-button.alternate:hover .buy-button-circle svg path {
-	fill: #ffffff;
+	fill: var(--blue-color);
 }
 
 .thomas-buy-button.alternate:hover .buy-button-circle {
